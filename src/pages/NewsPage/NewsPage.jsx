@@ -10,7 +10,7 @@ import Pagin from "../../components/shares/Pagin/Pagin";
 
 
 const NewsPage = () => {
-    const [keyWord, setKeyWord] = useState(false);
+    const [keyWord, setKeyWord] = useState("");
     const [newsState, setNewsState] = useState();
     const [currentPage, setCurrentPage] = useState(1);
     

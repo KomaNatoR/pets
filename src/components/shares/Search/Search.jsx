@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 
 import { SearchStyled, IconsBoxStyled } from "./search.styled";
@@ -8,10 +8,10 @@ import Icon from "../Icon/Icon";
 // const initialValue = { search: "" };
 const Search = ({ setKeyWord, setCurrentPage }) => {
     const [searchParams, setSearchParams] = useSearchParams();
-    useEffect(() => {                                        // Завантажується один раз і зчитує дані строки! 
-        const searchLineData = searchParams.get("search");
-        setKeyWord(searchLineData || "");
-    }, []);
+    // const searchLineData = searchParams.get("search");
+    // useEffect(() => {                                        // Завантажується один раз і зчитує дані строки! 
+    //     setKeyWord(searchLineData || "");
+    // }, [searchLineData, setKeyWord]);
 
 
     const searchLine = searchParams.get("search") ?? "";     // Якщо нема записує порожню строку в Інпут!

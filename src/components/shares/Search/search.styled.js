@@ -34,4 +34,6 @@ export const IconsBoxStyled = styled.div`
 
     display: flex;
     gap:5px;
+
+    cursor: pointer;
 `;
