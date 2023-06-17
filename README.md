@@ -3,12 +3,12 @@ https://komanator.github.io/pets/
 
 ## Main
 
-1. Зроблене основне офрмлення.
+1. Зроблене основне оформлення.
 2. Сторінки Main, 404, News, Notices, Friends.
-3. Загальні компоненти: Button, Icon, Loader, Modal, Pagin, ScrollButtons, Searc, Title.
+3. Загальні компоненти: Button, Icon, Loader, Modal, Pagin, ScrollButtons, Search, Title.
 4. Тема день/ніч.
 5. Адаптивка.
-6. Бургер для моб версії.
+6. Бургер для мобільної версії.
 
 ## In Progres..
 
