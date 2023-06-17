@@ -10,7 +10,7 @@ const ThemeSwitcher = (props) => {
 
     return (
         <SwitcherStyled onClick={toggleTheme} pawColor={pawColor} {...props}>
-            <span>{isLight ? "Dark pet" : "Light pet"}</span>
+            <span>{isLight ? "Dark beer" : "Light beer"}</span>
             <Paw />
         </SwitcherStyled>
     )
