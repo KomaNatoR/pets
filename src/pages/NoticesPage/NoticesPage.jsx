@@ -24,6 +24,7 @@ const NoticesPage = () => {
                         <NoticesAdd />
                     </MediaQuery>
                 </div>
+                {keyWord}
             </div>
             <Outlet/>
         </NoticesStyled>

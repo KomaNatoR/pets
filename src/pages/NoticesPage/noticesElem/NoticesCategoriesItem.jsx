@@ -8,7 +8,7 @@ import { useToggleModal } from "../../../components/shares/Modal/utils/useToggle
 import NotModalCard from "../NotModalCard/NotModalCard";
 
 const NoticesCategoriesItem = ({ itemData }) => {
-    const { _id, photo, title, name } = itemData;
+    const { photo, title, name } = itemData;
     const { isOpen, toggle } = useToggleModal(false);
 
     return (
