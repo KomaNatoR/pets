@@ -1,0 +1,32 @@
+[
+    {
+        "id":"1",
+        "name":"sell",
+        "path": "sell",
+        "access": "forAll"
+    },
+    {
+        "id":"2",
+        "name":"lost/found",
+        "path": "lost-found",
+        "access": "forAll"
+    },
+    {
+        "id":"3",
+        "name":"in good hands",
+        "path": "for-free",
+        "access": "forAll"
+    },
+    {
+        "id":"4",
+        "name":"favorite ads",
+        "path": "favorite",
+        "access": "user"
+    },
+    {
+        "id":"5",
+        "name":"my ads",
+        "path": "own",
+        "access": "user"
+    }
+]
