@@ -5,7 +5,7 @@ import Button from "../../../components/shares/Button/Button";
 import Icon from "../../../components/shares/Icon/Icon";
 
 const NotModalCard = (props) => {
-    const { _id, category, photo, breed, location, birthday, sex, title, name, owner, comments } = props.itemData;
+    const { category, photo, breed, location, birthday, sex, title, name, owner, comments } = props.itemData;
     const { toggleModal } = props;
     // console.log("IM MODAL!!!");
 
@@ -47,11 +47,11 @@ const NotModalCard = (props) => {
                         </li>
                         <li>
                             <p>Email:</p>
-                            <p><a href="">{owner.email}</a></p>
+                            <p><a href={owner.email}>{owner.email}</a></p>
                         </li>
                         <li>
                             <p>Phone:</p>
-                            <p><a href="">{owner.phone?owner.phone:"no data"}</a></p>
+                            <p><a href={owner.phone?owner.phone:"no data"}>{owner.phone?owner.phone:"no data"}</a></p>
                         </li>
                     </ul>
             </ModalCardDataStyled>
