@@ -7,9 +7,10 @@ import { getNotices } from "../../../API/Api";
 import { NotListStyled } from "./noticesElem.styled";
 import NoticesAdd from "./NoticesAdd";
 import NoticesCategoriesItem from "./NoticesCategoriesItem";
+// import Pagin from "components/shares/Pagin/Pagin";
 
 
-const NoticesCategoriesList = () => {
+const NoticesCategoriesList = (props) => {
     const [noticesData, setNoticesData] = useState([]);
     const {categoryName} = useParams();
 
@@ -34,6 +35,8 @@ const NoticesCategoriesList = () => {
             <ul className="not_list_ul">
                 {notList}
             </ul>
+
+            {/* <Pagin/> */}
         </NotListStyled>
     )
 };

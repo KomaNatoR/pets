@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 
 export const PaginButtStyled = styled.button`
+    cursor: pointer;
     min-width: 35px;
     min-height: 35px;
 

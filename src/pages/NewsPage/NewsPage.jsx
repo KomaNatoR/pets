@@ -30,7 +30,9 @@ const NewsPage = () => {
             <Title>News</Title>
             <Search setKeyWord={setKeyWord} setCurrentPage={setCurrentPage} />
             <NewsList searchData={newsState} keyWord={keyWord} />
-            {totalNews > 6 && <Pagin keyWord={keyWord} setCurrentPage={setCurrentPage} totalCount={totalNews} elementsPerPage={6} />}
+            {totalNews > 6 &&
+                <Pagin keyWord={keyWord} setCurrentPage={setCurrentPage} totalCount={totalNews} elementsPerPage={6} />
+            }
             {/* <Pagin totalNews={totalNews} newsPerPage={16} /> */}
         </NewsStyled>
     )

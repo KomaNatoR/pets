@@ -20,6 +20,7 @@ export const PaginStyled = styled.div`
         color: ${({ theme }) => theme.colors.white};
         background: ${({ theme }) => theme.colors.blue};
     }
+    svg {cursor: pointer;}
     svg:first-of-type {
         transform: rotateZ(90deg);
     }
