@@ -12,7 +12,7 @@ https://komanator.github.io/pets/
 
 ## In Progres..
 
-1. Пошук/Пагінація для Notices.
+1. Пошук для Notices.
 2. Фільтр для Notices.
 3. Реєстрація.
 4. Функціонал по User.
