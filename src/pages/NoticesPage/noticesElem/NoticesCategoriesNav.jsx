@@ -18,6 +18,7 @@ const NoticesCategoriesNav = () => {
     );
     // console.log(navListForAll);
 
+    
     return (
         <NotNavStyled>
             {token ? navListUser : navListForAll}

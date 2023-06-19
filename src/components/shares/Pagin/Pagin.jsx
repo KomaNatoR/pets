@@ -45,6 +45,10 @@ const Pagin = (props) => {
         
         return <PaginButt onClick={onButtClick} key={it} buttNumber={buttClass}>{it}</PaginButt>}
     );
+    // console.log(totalCount);
+    // console.log(elementsPerPage);
+    // console.log(keyWord);
+    // console.log(Math.floor(totalCount / elementsPerPage));
 
     
     return (
@@ -57,6 +61,8 @@ const Pagin = (props) => {
 };
 Pagin.defaultProps = {
     totalCount: 0,
+    keyWord: "",
+    elementsPerPage: 0,
 };
 
 

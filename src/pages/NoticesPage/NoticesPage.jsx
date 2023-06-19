@@ -8,14 +8,16 @@ import Search from "../../components/shares/Search/Search";
 import NoticesCategoriesNav from "./noticesElem/NoticesCategoriesNav";
 import NoticesFilters from "./noticesElem/NoticesFilters";
 import NoticesAdd from "./noticesElem/NoticesAdd";
+// import Pagin from "components/shares/Pagin/Pagin";
 
 const NoticesPage = () => {
-    const [keyWord, setKeyWord] = useState();
+    const [keyWord, setKeyWord] = useState("");
 
     return (
         <NoticesStyled>
             <Title>Find your favorite pet</Title>
             <Search setKeyWord={setKeyWord} setCurrentPage={"setCurrentPage"} />
+
             <div className="pet_navigate">
                 <NoticesCategoriesNav />
                 <div>
@@ -26,7 +28,9 @@ const NoticesPage = () => {
                 </div>
                 {keyWord}
             </div>
-            <Outlet/>
+
+            <Outlet />
+            {/* <Pagin/> */}
         </NoticesStyled>
     )
 };
