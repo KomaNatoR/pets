@@ -12,20 +12,20 @@ import Loader from "components/shares/Loader/Loader";
 
 
 const NoticesCategoriesList = () => {
-    const [noticesData, setNoticesData] = useState({notices:[]});
+    const [noticesData, setNoticesData] = useState({ notices: [] });
     const [paginPage, setPaginPage] = useState(1);
     const { categoryName } = useParams();
 
     useEffect(() => {
-        if(categoryName)
+        if (categoryName)
 
-        getNotices(categoryName, { page: paginPage })
-            .then((data) => setNoticesData(data))
-            .catch(err => setNoticesData({notices:[]}));
+            getNotices(categoryName, { page: paginPage })
+                .then((data) => setNoticesData(data))
+                .catch(err => setNoticesData({ notices: [] }));
     }, [categoryName, paginPage]);
     console.log("noticesData|-->", noticesData);
 
-    const notItem = noticesData.notices.map(it => it &&
+    const notItem = noticesData && noticesData.notices.map(it => it &&
         <li key={it._id}>
             <NoticesCategoriesItem itemData={it} />
         </li>
@@ -34,8 +34,8 @@ const NoticesCategoriesList = () => {
         <ul className="not_list_ul">
             {notItem}
         </ul>
-    ;
-    const totalCard = noticesData.total ? noticesData.total : 0;
+        ;
+    const totalCard = (noticesData && noticesData.total) ? noticesData.total : 0;
     // console.log(noticesData);
 
 
@@ -45,7 +45,7 @@ const NoticesCategoriesList = () => {
                 <NoticesAdd />
             </MediaQuery>
 
-            {noticesData.notices.length === 0 ? <Loader /> : notList}
+            {(noticesData && noticesData.notices.length !== 0) ? notList : <Loader />}
 
             {totalCard > 12 &&
                 <Pagin setCurrentPage={setPaginPage} totalCount={totalCard} elementsPerPage={12} />
