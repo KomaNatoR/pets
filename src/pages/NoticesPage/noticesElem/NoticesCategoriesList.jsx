@@ -17,13 +17,13 @@ const NoticesCategoriesList = () => {
     const { categoryName } = useParams();
 
     useEffect(() => {
-        if (categoryName)
+        // if (categoryName)
 
-            getNotices(categoryName, { page: paginPage })
-                .then((data) => setNoticesData(data))
-                .catch(err => setNoticesData({ notices: [] }));
+        getNotices(categoryName, { page: paginPage })
+            .then((data) => setNoticesData(data))
+            .catch(err => setNoticesData({ notices: [] }));
     }, [categoryName, paginPage]);
-    console.log("noticesData|-->", noticesData);
+    // console.log("noticesData|-->", noticesData);
 
     const notItem = noticesData && noticesData.notices.map(it => it &&
         <li key={it._id}>
