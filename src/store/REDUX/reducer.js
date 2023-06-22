@@ -6,5 +6,5 @@ import { todoReducer } from "./todo/reducerTodo";
 
 export const reducer = combineReducers({
     counter: counterReducer,
-    todo:todoReducer,
+    todo: todoReducer,
 });

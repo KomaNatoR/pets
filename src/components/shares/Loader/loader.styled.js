@@ -10,6 +10,11 @@ export const LoaderStyled = styled.div`
     margin-right: auto;
 
     // background: red;
+    // p {
+    //     position: absolute;
+    //     left: -80px;
+    //     width: 220px;
+    // }
 
 
         
