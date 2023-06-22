@@ -1,6 +1,6 @@
 import MediaQuery from "react-responsive";
 import { useDispatch } from "react-redux";
-import { increment, decrement } from "store/REDUX_SLICE/counter/counterSlice";
+import { increment } from "store/REDUX_SLICE/counter/counterSlice";
 
 import { NotFilterStyled } from "./noticesElem.styled";
 import Icon from "../../../components/shares/Icon/Icon";
