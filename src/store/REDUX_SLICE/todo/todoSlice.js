@@ -1,18 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-import { todoInitState } from "./initialState";
+import { initialStateTodo } from "./initialState";
 
 
-export const counterSlice = createSlice({
-    name: "todo",
-    initialState: todoInitState,
+const counterSlice = createSlice({
+    name: "todos",
+    initialState: initialStateTodo,
     reducers: {
-        createTodo: (state, action)=>({
-            ...state,
-            todo: [...state.todo, { ...action.payload }],
-        }),
+        createTodo: (state, action) => ({ ...state, todo: [...state.todo, { ...action.payload }], }),
     },
 });
-export const {createTodo} = counterSlice.actions;
 
+
+export const { createTodo } = counterSlice.actions;
 export const reducerTodo = counterSlice.reducer;

@@ -1,4 +1,6 @@
 import MediaQuery from "react-responsive";
+import { useDispatch } from "react-redux";
+import { increment, decrement } from "store/REDUX_SLICE/counter/counterSlice";
 
 import { NotFilterStyled } from "./noticesElem.styled";
 import Icon from "../../../components/shares/Icon/Icon";
@@ -6,6 +8,8 @@ import Button from "../../../components/shares/Button/Button";
 
 
 const NoticesFilters = () => {
+    const dispatch = useDispatch();
+
     return (
         <NotFilterStyled>
             <MediaQuery maxWidth={767}>
@@ -15,7 +19,7 @@ const NoticesFilters = () => {
             </MediaQuery>
 
             <MediaQuery minWidth={768}>
-                <Button>
+                <Button onClick={()=>dispatch(increment(1))}>
                     {"Filter"}
                     <Icon id="filter" style={{marginLeft: "8px"}} />
                 </Button>

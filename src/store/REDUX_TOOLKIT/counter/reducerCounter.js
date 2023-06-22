@@ -1,12 +1,10 @@
 import { createReducer } from "@reduxjs/toolkit";
 
-import { counterInitState } from "./initialState";
-import { increment } from "./actions";
+import { initialStateCounter } from "./initialStateCounter";
+import { increment, decrement } from "./actions";
 
 
-export const counterReducer = createReducer(counterInitState, {
-    [increment]:(state, action)=>({
-        ...state,
-        total: action.payload + state.step,
-    }),
+export const reducerCounter = createReducer(initialStateCounter, {
+    [increment]: (state, action) => ({ ...state, total: state.total + action.payload, }),
+    [decrement]: (state, action) => ({ ...state, total: state.total - action.payload, }),
 });

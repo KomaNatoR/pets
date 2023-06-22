@@ -1,3 +1,3 @@
 import { createAction } from "@reduxjs/toolkit";
 
-export const createTodo = createAction("CREATETODO");
+export const createTodo = createAction("Todo/CREATETODO");

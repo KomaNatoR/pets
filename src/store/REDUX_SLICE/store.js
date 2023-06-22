@@ -1,6 +1,12 @@
-import { reducer as rootReducer } from "./reducer";
 import { configureStore } from "@reduxjs/toolkit";
 
+import { reducerCounter } from "./counter/counterSlice";
+import { reducerTodo } from "./todo/todoSlice";
 
-export const store = configureStore({ reducer: rootReducer });
-// або скорочено так: export const store = configureStore({ reducer });
+
+export const store = configureStore({
+    reducer: {
+        counter: reducerCounter,
+        todo: reducerTodo,
+    },
+});

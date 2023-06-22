@@ -1,1 +1,0 @@
-export const counterInitState = { total: 0, step: 1, };
