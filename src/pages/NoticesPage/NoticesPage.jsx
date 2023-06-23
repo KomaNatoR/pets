@@ -26,7 +26,7 @@ const NoticesPage = () => {
                         <NoticesAdd />
                     </MediaQuery>
                 </div>
-                {keyWord}
+                {Boolean(keyWord)}
             </div>
 
             <Outlet />

@@ -1,7 +1,16 @@
 import { configureStore } from "@reduxjs/toolkit";
 
-import { persistStore, persistReducer } from 'redux-persist'
-import storage from 'redux-persist/lib/storage'
+import {
+    persistStore,
+    persistReducer,
+    FLUSH,
+    REHYDRATE,
+    PAUSE,
+    PERSIST,
+    PURGE,
+    REGISTER,
+} from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 
 import { reducerCounter } from "./counter/counterSlice";
 import { reducerTodo } from "./todo/todoSlice";
@@ -20,6 +29,12 @@ export const store = configureStore({
         counter: reducerCounter,
         todo: persistedTodosReducer, // Заганяємо обгорнутий редюсер сюди!
     },
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware({
+        serializableCheck: {
+            ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+        },
+    }), // Ця штука потрібна щоб не вибивало помилки в консолі!!!
 });
 export const persistor = persistStore(store);
 
