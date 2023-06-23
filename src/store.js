@@ -3,8 +3,8 @@ import { configureStore } from "@reduxjs/toolkit";
 import { persistStore, persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 
-import { reducerCounter } from "store/REDUX_SLICE/counter/counterSlice";
-import { reducerTodo } from "store/REDUX_SLICE/todo/todoSlice";
+import { reducerCounter } from "REDUX/REDUX_SLICE/counter/counterSlice";
+import { reducerTodo } from "REDUX/REDUX_SLICE/todo/todoSlice";
  
 
 const persistConfig = {
