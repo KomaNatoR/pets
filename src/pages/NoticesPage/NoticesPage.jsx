@@ -8,7 +8,6 @@ import Search from "../../components/shares/Search/Search";
 import NoticesCategoriesNav from "./noticesElem/NoticesCategoriesNav";
 import NoticesFilters from "./noticesElem/NoticesFilters";
 import NoticesAdd from "./noticesElem/NoticesAdd";
-// import Pagin from "components/shares/Pagin/Pagin";
 
 const NoticesPage = () => {
     const [keyWord, setKeyWord] = useState("");
@@ -29,8 +28,7 @@ const NoticesPage = () => {
                 {Boolean(keyWord)}
             </div>
 
-            <Outlet />
-            {/* <Pagin/> */}
+            <Outlet/>
         </NoticesStyled>
     )
 };
