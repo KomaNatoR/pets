@@ -26,12 +26,12 @@ export const getFriends = async() => {
   }
 };
 
-export const getNotices = async(category, params) => {
-  try {
-    const response = await instance.get(`/notices/${category}`, { params });
+// export const getNotices = async(category, params) => {
+//   try {
+//     const response = await instance.get(`/notices/${category}`, { params });
 
-    return response.data;
-  } catch (error) {
-    toast.error(error.message);
-  }
-};
+//     return response.data;
+//   } catch (error) {
+//     toast.error(error.message);
+//   }
+// };

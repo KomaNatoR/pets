@@ -1,14 +1,14 @@
 import MediaQuery from "react-responsive";
-import { useDispatch } from "react-redux";
-import { increment } from "REDUX/REDUX_SLICE/counter/counterSlice";
 
 import { NotFilterStyled } from "./noticesElem.styled";
 import Icon from "../../../components/shares/Icon/Icon";
 import Button from "../../../components/shares/Button/Button";
 
 
+// import { getNoticesSearch } from "API/ApiNotices";
+// onClick={()=>getNoticesSearch("sell",{ page: 1, limit:12, search: "c" }).then(data=>console.log(data))}
+
 const NoticesFilters = () => {
-    const dispatch = useDispatch();
 
     return (
         <NotFilterStyled>
@@ -19,7 +19,7 @@ const NoticesFilters = () => {
             </MediaQuery>
 
             <MediaQuery minWidth={768}>
-                <Button onClick={()=>dispatch(increment(1))}>
+                <Button>
                     {"Filter"}
                     <Icon id="filter" style={{marginLeft: "8px"}} />
                 </Button>

@@ -12,26 +12,24 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-import { reducerNotices } from "pages/NoticesPage/Redux/notices/notices_slice";
-import { reducerNoticSearch } from "pages/NoticesPage/Redux/search/noticSearch_slice";
-import { reducerCounter } from "REDUX/REDUX_ASYNC/counter/counterSlice";
-// import { reducerTodo } from "REDUX/REDUX_ASYNC/todo/todoSlice";
+import { reducerNotices } from "pages/NoticesPage/Redux/NoticesOperations";
+// import { reducerCounter } from "./counter/counterSlice";
+// import { reducerTodo } from "./todo/todoSlice";
  
 
 const persistConfig = {
     key: 'localTodos',
     storage,
-    blacklist: ['isLoading', "error"],
+    blacklist: ['isLoading', 'error'],
 };
-const persistedCounterSearchReducer = persistReducer(persistConfig, reducerCounter);
+const persistedNoticesReducer = persistReducer(persistConfig, reducerNotices);
 
 
 export const store = configureStore({
     reducer: {
-        notices: reducerNotices,
-        noticesSearch: reducerNoticSearch,
-        counter: persistedCounterSearchReducer,
-        // todo: persistedTodoReducer,
+        notices: persistedNoticesReducer,
+        // counter: reducerCounter,
+        // todo: persistedTodosReducer,
     },
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 
 
 import { getNews } from "../../API/Api";
@@ -10,18 +11,18 @@ import Pagin from "../../components/shares/Pagin/Pagin";
 
 
 const NewsPage = () => {
-    const [keyWord, setKeyWord] = useState("");
+    const [searchParams] = useSearchParams();
+    const searchLine = searchParams.get("search") ?? "";
+    const [keyWord, setKeyWord] = useState(searchLine);
     const [newsState, setNewsState] = useState();
     const [currentPage, setCurrentPage] = useState(1);
+    // console.log("NewsPage|-->");
     
 
     useEffect(() => {
-        // --------------------------| Перевіка, щоб при введеному слові, при обнові стоінки не смикало "новини порожньої строки"!
-        if (keyWord === false) return;
-        // --------------------------|
 
         getNews({ page: currentPage, search: keyWord }).then((data) => setNewsState(data));
-    }, [keyWord, currentPage]);
+    }, [currentPage, keyWord]);
     const totalNews = newsState ? newsState.total : 0;
 
 
@@ -33,7 +34,6 @@ const NewsPage = () => {
             {totalNews > 6 &&
                 <Pagin keyWord={keyWord} setCurrentPage={setCurrentPage} totalCount={totalNews} elementsPerPage={6} />
             }
-            {/* <Pagin totalNews={totalNews} newsPerPage={16} /> */}
         </NewsStyled>
     )
 };

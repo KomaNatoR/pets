@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import MediaQuery from "react-responsive";
 
-import { getNotices } from "../../../API/Api";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchNotices, fetchNoticesSearch } from "../Redux/notices/notices_operations";
 
 import { NotListStyled } from "./noticesElem.styled";
 import NoticesAdd from "./NoticesAdd";
@@ -12,20 +13,28 @@ import Loader from "components/shares/Loader/Loader";
 
 
 const NoticesCategoriesList = () => {
-    const [noticesData, setNoticesData] = useState({ notices: [] });
     const [paginPage, setPaginPage] = useState(1);
+
     const { categoryName } = useParams();
+    const dispatch = useDispatch();
+    const { notices, total } = useSelector(({ notices }) => notices.items);
+    const { keyWord } = useSelector((state) => state.noticesSearch);
+    // currentPage
 
     useEffect(() => {
-        // if (categoryName)
+        if (keyWord !== "") return;
 
-        getNotices(categoryName, { page: paginPage })
-            .then((data) => setNoticesData(data))
-            .catch(err => setNoticesData({ notices: [] }));
-    }, [categoryName, paginPage]);
-    // console.log("noticesData|-->", noticesData);
+        dispatch(fetchNotices({ categorie: categoryName, page: paginPage }));
+    }, [categoryName, dispatch, keyWord, paginPage]);
+    useEffect(() => {
+        if (keyWord === "") return;
 
-    const notItem = noticesData && noticesData.notices.map(it => it &&
+        dispatch(fetchNoticesSearch({ categorie: categoryName, page: paginPage, search: keyWord }));
+    }, [categoryName, dispatch, keyWord, paginPage]);
+    // console.log("notices|-->",notices);
+
+
+    const notItem = notices && notices.map(it => it &&
         <li key={it._id}>
             <NoticesCategoriesItem itemData={it} />
         </li>
@@ -35,8 +44,7 @@ const NoticesCategoriesList = () => {
             {notItem}
         </ul>
         ;
-    const totalCard = (noticesData && noticesData.total) ? noticesData.total : 0;
-    // console.log(noticesData);
+    const totalCard = total ? total : 0;
 
 
     return (
@@ -45,7 +53,7 @@ const NoticesCategoriesList = () => {
                 <NoticesAdd />
             </MediaQuery>
 
-            {(noticesData && noticesData.notices.length !== 0) ? notList : <Loader />}
+            {notices ? notList : <Loader />}
 
             {totalCard > 12 &&
                 <Pagin setCurrentPage={setPaginPage} totalCount={totalCard} elementsPerPage={12} />
