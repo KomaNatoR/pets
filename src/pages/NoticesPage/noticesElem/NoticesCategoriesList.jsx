@@ -13,9 +13,10 @@ import Loader from "components/shares/Loader/Loader";
 
 
 const NoticesCategoriesList = () => {
-    const [paginPage, setPaginPage] = useState(1);
 
+    const [paginPage, setPaginPage] = useState(1);
     const { categoryName } = useParams();
+
     const dispatch = useDispatch();
     const { notices, total } = useSelector(({ notices }) => notices.items);
     const { keyWord } = useSelector((state) => state.noticesSearch);
@@ -23,15 +24,16 @@ const NoticesCategoriesList = () => {
 
     useEffect(() => {
         if (keyWord !== "") return;
-
+        // console.log("true");
+        
         dispatch(fetchNotices({ categorie: categoryName, page: paginPage }));
     }, [categoryName, dispatch, keyWord, paginPage]);
     useEffect(() => {
         if (keyWord === "") return;
+        // console.log("false");
 
         dispatch(fetchNoticesSearch({ categorie: categoryName, page: paginPage, search: keyWord }));
     }, [categoryName, dispatch, keyWord, paginPage]);
-    // console.log("notices|-->",notices);
 
 
     const notItem = notices && notices.map(it => it &&

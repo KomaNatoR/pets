@@ -18,10 +18,12 @@ const NoticesPage = () => {
     const [keyWord, setKeyWord] = useState(searchLine);
     const [currentPage, setCurrentPage] = useState(1);
     const dispatch = useDispatch();
-    // console.log("NoticesPage");
-    // console.log("keyWord|-->", keyWord);
+    // console.log("|NoticesPage|");
+    // console.log("|searchLine |-->", searchLine);
+    // console.log("|keyWord    |-->", keyWord);
 
     useEffect(() => {
+        // console.log("|useEffect|");
         dispatch(setNoticeKeyWord({ keyWord, currentPage }));
     }, [currentPage, dispatch, keyWord]);
 
