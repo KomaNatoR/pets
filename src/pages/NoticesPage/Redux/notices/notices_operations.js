@@ -13,7 +13,7 @@ export const fetchNotices = createAsyncThunk(
             const data = await getNotices(categorie, { page: page });
             return data;
         } catch (error) {
-            console.log("error   |-->", error);
+            // console.log("error   |-->", error);
             return thunkAPI.rejectWithValue(error);
         }
     }
@@ -29,7 +29,7 @@ export const fetchNoticesSearch = createAsyncThunk(
             const data = await getNoticesSearch(categorie, { page: page, limit: 12, search: search, });
             return data;
         } catch (error) {
-            console.log("error   |-->", error);
+            // console.log("error   |-->", error);
             return thunkAPI.rejectWithValue(error);
         }
     }

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";//useLocation
 import MediaQuery from "react-responsive";
 
 import { useSelector, useDispatch } from "react-redux";
@@ -13,14 +13,24 @@ import Loader from "components/shares/Loader/Loader";
 
 
 const NoticesCategoriesList = () => {
+    // const myRef = useRef(null);
+    // const location = useLocation();
+    // const locationPrev = location.state && location.state.pathname.slice(9);
+    // const locationNow = location.pathname.slice(9);
+    // const isResetPagin = locationNow === locationPrev;
 
     const [paginPage, setPaginPage] = useState(1);
     const { categoryName } = useParams();
+    // const myRef = useRef(categoryName);
 
     const dispatch = useDispatch();
     const { notices, total } = useSelector(({ notices }) => notices.items);
-    const { keyWord } = useSelector((state) => state.noticesSearch);
-    // currentPage
+    const { keyWord } = useSelector((state) => state.noticesSearch);//currentPage
+
+    // console.log("isResetPagin  |-->",isResetPagin);
+    // console.log("locationNow   |-->",locationNow);
+    // console.log("locationPrev  |-->",locationPrev);
+    // console.log("keyWord   |-->",keyWord);
 
     useEffect(() => {
         if (keyWord !== "") return;

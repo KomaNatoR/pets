@@ -12,6 +12,7 @@ export const getNotices = async (category, params) => {
 
         return response.data;
     } catch (error) {
+        console.log(error);
         error(error.message);
     }
 };
