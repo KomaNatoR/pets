@@ -15,12 +15,12 @@ function App() {
       <Routes>
         <Route path="/" element={<SharedLayout/>}>
           <Route index element={<MainPage/>}/>
-          <Route path="/news" element={<NewsPage />} />
-          <Route path="/notices" element={<NoticesPage/>}>
-            <Route index element={<Navigate to="/notices/sell"/>}/>
+          <Route path="news" element={<NewsPage />} />
+          <Route path="notices" element={<NoticesPage/>}>
+            <Route index element={<Navigate to="notices/sell"/>}/>
             <Route path=":categoryName" element={<NoticesCategoriesList/>}/>
           </Route>
-          <Route path="/friends" element={<FriendsPage/>}/>
+          <Route path="friends" element={<FriendsPage/>}/>
           <Route path="*" element={<ErrorPage/>}/>
         </Route>
       </Routes>
