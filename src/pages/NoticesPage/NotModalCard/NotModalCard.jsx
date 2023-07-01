@@ -1,3 +1,5 @@
+import { toast } from 'react-toastify';
+
 import { ModalCardStyled, ModalCardImgStyled, ModalCardDataStyled, ModalCardButtStyled } from "./notModalCard.styled";
 import { TypeStyled } from "../NotPictAdditional/notPictAdditional.styled";
 import Title from "../../../components/shares/Title/Title";
@@ -8,6 +10,19 @@ const NotModalCard = (props) => {
     const { category, photo, breed, location, birthday, sex, title, name, owner, comments } = props.itemData;
     const { toggleModal } = props;
     // console.log("IM MODAL!!!");
+
+    const toastHeart = () => {
+        toast.info('Only after login!', {
+            position: "top-center",
+            autoClose: 2000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+        });
+    };
 
     return (
         <ModalCardStyled>
@@ -63,7 +78,7 @@ const NotModalCard = (props) => {
 
             <ModalCardButtStyled>
                 <Button width="256px">Contact</Button>
-                <Button buttonView="blue" width="256px">
+                <Button onClick={toastHeart} buttonView="blue" width="256px">
                     {"Add to"}
                     <Icon id="heart" colorStroke="white"/>
                 </Button>

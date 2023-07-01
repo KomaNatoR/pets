@@ -10,20 +10,19 @@ import ErrorPage from "./pages/ErrorPage/ErrorPage";
 
 function App() {
 
-
   return (
-      <Routes>
-        <Route path="/" element={<SharedLayout/>}>
-          <Route index element={<MainPage/>}/>
-          <Route path="/news" element={<NewsPage />} />
-          <Route path="/notices" element={<NoticesPage/>}>
-            <Route index element={<Navigate to="/notices/sell"/>}/>
-            <Route path=":categoryName" element={<NoticesCategoriesList/>}/>
-          </Route>
-          <Route path="/friends" element={<FriendsPage/>}/>
-          <Route path="*" element={<ErrorPage/>}/>
+    <Routes>
+      <Route path="/" element={<SharedLayout/>}>
+        <Route index element={<MainPage/>}/>
+        <Route path="/news" element={<NewsPage />} />
+        <Route path="/notices" element={<NoticesPage/>}>
+          <Route index element={<Navigate to="/notices/sell"/>}/>
+          <Route path=":categoryName" element={<NoticesCategoriesList/>}/>
         </Route>
-      </Routes>
+        <Route path="/friends" element={<FriendsPage/>}/>
+        <Route path="*" element={<ErrorPage/>}/>
+      </Route>
+    </Routes>
   );
 }
 

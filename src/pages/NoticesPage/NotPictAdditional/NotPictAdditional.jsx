@@ -1,3 +1,5 @@
+import { toast } from 'react-toastify';
+
 import { TypeStyled, HeartStyled, DeleteStyled, InformListStyled } from "./notPictAdditional.styled";
 import Icon from "../../../components/shares/Icon/Icon";
 
@@ -15,15 +17,28 @@ const NotPictAdditional = ({ itemData }) => {
         if (ageYear < 1) return ageMonth === 1 ? `${ageMonth} month` : `${ageMonth} months`;
         if (ageYear === 1) return "1 year";
         if (ageYear > 1) return `${ageYear} years`;
-    }
+    };
+
+    const toastHeart = () => {
+        toast.info('Only after login!', {
+            position: "top-center",
+            autoClose: 2000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+        });
+    };
 
     return (
         <>
             <TypeStyled>{category}</TypeStyled>
-            <HeartStyled type="button">
+            <HeartStyled onClick={toastHeart} type="button">
                 <Icon id="heart" />
             </HeartStyled>
-            {token && <DeleteStyled>
+            {token && <DeleteStyled onClick={toastHeart}>
                 <Icon id="trash_bin" />
             </DeleteStyled>}
 

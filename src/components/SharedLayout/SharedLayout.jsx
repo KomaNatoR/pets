@@ -2,6 +2,9 @@ import { Outlet } from "react-router-dom";
 // import { useContext } from "react";
 // import { ThemeContext } from "../../utils/ThemeContext/themeProvider";
 
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 // import { ThemeProvider } from "@emotion/react";
 // import { themeLight, themeDark } from "../../constants";
 import EmotionThemeProvider from "../../utils/EmotionThemeProvider/EmotionThemeProvider";
@@ -16,6 +19,8 @@ const SharedLayout = () => {
         <EmotionThemeProvider>
             <ModalProvider>
                 <Container>
+                    <ToastContainer />
+                    
                     <Header />
                     <main>
                         <Outlet />

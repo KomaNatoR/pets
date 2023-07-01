@@ -1,4 +1,5 @@
 import MediaQuery from "react-responsive";
+import { toast } from 'react-toastify';
 
 import { NotFilterStyled } from "./noticesElem.styled";
 import Icon from "../../../components/shares/Icon/Icon";
@@ -10,16 +11,29 @@ import Button from "../../../components/shares/Button/Button";
 
 const NoticesFilters = () => {
 
+    const toastHeart = () => {
+        toast.error('Sorry still not completed!', {
+            position: "top-center",
+            autoClose: 2000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+        });
+    };
+
     return (
         <NotFilterStyled>
             <MediaQuery maxWidth={767}>
-                <button type="button" className="filter_butt_mob">
+                <button onClick={toastHeart} type="button" className="filter_butt_mob">
                     <Icon id="filter"/>
                 </button>
             </MediaQuery>
 
             <MediaQuery minWidth={768}>
-                <Button>
+                <Button onClick={toastHeart}>
                     {"Filter"}
                     <Icon id="filter" style={{marginLeft: "8px"}} />
                 </Button>
