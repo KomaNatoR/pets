@@ -17,7 +17,7 @@ const AuthNav = (props) => {
                     <Paw/>
                 </Button>
             </Link>
-            <Link to="/registration">
+            <Link to="/register">
                 <Button className="three" onClick={close} buttonView="yellow">Registration</Button>
             </Link>
         </AuthNavStyled>
