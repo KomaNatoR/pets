@@ -1,33 +1,40 @@
+import { lazy, Suspense } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 
-import SharedLayout from "./components/SharedLayout/SharedLayout";
-// const SharedLayout = (() =>);
-import MainPage from "./pages/MainPage/MainPage";
-import NewsPage from "./pages/NewsPage/NewsPage";
-import NoticesPage from "./pages/NoticesPage/NoticesPage";
-import NoticesCategoriesList from "./pages/NoticesPage/noticesElem/NoticesCategoriesList";
-import FriendsPage from "./pages/FriendsPage/FriendsPage";
-import RegPage from "pages/AuthPages/RegPage/RegPage";
-import LoginPage from "pages/AuthPages/LoginPage/LoginPage";
-import ErrorPage from "./pages/ErrorPage/ErrorPage";
+const SharedLayout = lazy(() => import("./components/SharedLayout/SharedLayout"));
+const MainPage = lazy(() => import("./pages/MainPage/MainPage"));
+const NewsPage = lazy(() => import("./pages/NewsPage/NewsPage"));
+const NoticesPage = lazy(() => import("./pages/NoticesPage/NoticesPage"));
+const NoticesCategoriesList = lazy(() => import("./pages/NoticesPage/noticesElem/NoticesCategoriesList"));
+const FriendsPage = lazy(() => import("./pages/FriendsPage/FriendsPage"));
+const RegPage = lazy(() => import("pages/AuthPages/RegPage/RegPage"));
+const LoginPage = lazy(() => import("pages/AuthPages/LoginPage/LoginPage"));
+const ErrorPage = lazy(() => import("./pages/ErrorPage/ErrorPage"));
+
+// import Loader from "components/shares/Loader/Loader";
+
 
 function App() {
 
   return (
-    <Routes>
-      <Route path="/" element={<SharedLayout/>}>
-        <Route index element={<MainPage/>}/>
-        <Route path="/news" element={<NewsPage />} />
-        <Route path="/notices" element={<NoticesPage/>}>
-          <Route index element={<Navigate to="/notices/sell"/>}/>
-          <Route path=":categoryName" element={<NoticesCategoriesList/>}/>
+    <Suspense fallback={<p style={{ textAlign: "center", }}>...loading</p>}>
+
+      <Routes>
+        <Route path="/" element={<SharedLayout />}>
+          <Route index element={<MainPage />} />
+          <Route path="/news" element={<NewsPage />} />
+          <Route path="/notices" element={<NoticesPage />}>
+            <Route index element={<Navigate to="/notices/sell" />} />
+            <Route path=":categoryName" element={<NoticesCategoriesList />} />
+          </Route>
+          <Route path="/friends" element={<FriendsPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegPage />} />
+          <Route path="*" element={<ErrorPage />} />
         </Route>
-        <Route path="/friends" element={<FriendsPage/>}/>
-        <Route path="/login" element={<LoginPage/>}/>
-        <Route path="/register" element={<RegPage/>}/>
-        <Route path="*" element={<ErrorPage/>}/>
-      </Route>
-    </Routes>
+      </Routes>
+
+    </Suspense>
   );
 }
 
