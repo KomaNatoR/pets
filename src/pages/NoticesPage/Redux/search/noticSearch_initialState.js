@@ -1,4 +1,4 @@
 export const initialState = {
   keyWord: "",
-  currentPage:1,
+  currentPage: 1,
 };

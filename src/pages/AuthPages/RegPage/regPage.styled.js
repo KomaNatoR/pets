@@ -10,6 +10,8 @@ export const RegPageStyled = styled.div`
     div {
         width: 280px;
         height: 400px;
+        margin-left: auto;
+        margin-right: auto;
 
         text-align: center;
 
@@ -17,4 +19,11 @@ export const RegPageStyled = styled.div`
         background: ${({ theme }) => theme.colors.pureWhite};
         box-shadow: ${({ theme }) => theme.shadows.small};
     }
+@media (min-width: 768px) {
+
+    div {
+        width: 608px;
+        height: 482px;
+    }
+}
 `;

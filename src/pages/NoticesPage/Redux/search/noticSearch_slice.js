@@ -7,7 +7,7 @@ const noticSearchSlice = createSlice({
     name: "todos",
     initialState,
     reducers: {
-        setKeyWord: (_, action) => ({...action.payload}),
+        setKeyWord: (_, action) => ({ ...action.payload }),
     },
 });
 

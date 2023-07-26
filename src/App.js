@@ -1,6 +1,7 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 
 import SharedLayout from "./components/SharedLayout/SharedLayout";
+// const SharedLayout = (() =>);
 import MainPage from "./pages/MainPage/MainPage";
 import NewsPage from "./pages/NewsPage/NewsPage";
 import NoticesPage from "./pages/NoticesPage/NoticesPage";
