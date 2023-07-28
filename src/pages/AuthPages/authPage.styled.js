@@ -65,25 +65,6 @@ export const FormStyled = styled(Form)`
         flex-direction: column;
         gap:24px;
         margin-bottom: 40px;
-
-        input {
-            box-sizing: border-box;
-
-            width: 256px;
-            height: 48px;
-            padding: 0 16px;
-
-            font-size: 16px;
-
-            color: ${({ theme }) => theme.colors.gray};
-            border: 1px solid ${({ theme }) => theme.colors.blue};
-            border-radius: 40px;
-
-            ::placeholder {
-                font-size: 16px;
-                color: ${({ theme }) => theme.colors.gray};
-            }
-        }
     }
     button {
         width: 256px;
