@@ -3,6 +3,7 @@ export const themeLight = {
     yellow: '#FFC107',
     white: '#FDF7F2',
     pureWhite: '#FFFFFF',
+    gray: 'rgb(136, 136, 136)',
     black: '#111111',
     puerBlack: '#000000',
     gradBlue: 'linear-gradient(290.46deg, #419EF1 0%, #9BD0FF 107.89%)',

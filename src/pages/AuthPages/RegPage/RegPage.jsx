@@ -1,12 +1,16 @@
-import { RegPageStyled } from "./regPage.styled";
+import { Link } from "react-router-dom";
 
-const LoginPage = () => {
+// import { RegPageStyled } from "./regPage.styled";
+import AuthBox from "../AuthBox";
+
+
+const RegPage = () => {
     return (
-        <RegPageStyled>
-            <div>Register</div>
-        </RegPageStyled>
+        <AuthBox forWhat="Registration">
+            <p className="auth_bottom_text">Already have an account?<Link to="/login"> Login</Link></p>
+        </AuthBox>
     )
-}
+};
 
 
-export default LoginPage;
+export default RegPage;
