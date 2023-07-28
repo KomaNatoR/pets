@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { Form } from "formik";
 
 export const AuthPageStyled = styled.div`
     display:flex;
@@ -49,7 +50,7 @@ export const AuthPageStyled = styled.div`
 }
 `;
 
-export const FormStyled = styled.form`
+export const FormStyled = styled(Form)`
     box-sizing: border-box;
 
     display: flex;

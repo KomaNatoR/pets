@@ -5,7 +5,7 @@ import { AuthPageStyled, FormStyled } from "./authPage.styled";
 import Title from "components/shares/Title/Title";
 
 
-import { Formik, Form } from 'formik';
+import { Formik } from 'formik';
 import { fields } from "./data";//, initialValues, regSchema
 import TextField from "./elements/TextField";
 import Button from "components/shares/Button/Button";
