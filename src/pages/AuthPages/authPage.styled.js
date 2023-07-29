@@ -43,7 +43,7 @@ export const AuthPageStyled = styled.div`
     }
 @media (min-width: 768px) {
 
-    div {
+    > div {
         width: 608px;
         height: 482px;
     }

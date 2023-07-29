@@ -13,7 +13,7 @@ const TextField = ({ name, ...props }) => {
 
     const onHandleChange = (e) => {
         const { value } = e.target;
-        
+
         setFieldValue(name, value);
         // setTouched({ ...setTouched, [name]: "" });
         setErrors({ ...errors, [name]: "" });
@@ -28,8 +28,6 @@ const TextField = ({ name, ...props }) => {
     // console.log("hasError|-->", hasError);
     // console.log("errors   |-->", errors);
     // console.log("touched |-->", touched);
-    // console.log("isSubmitting |-->", isSubmitting);
-    // console.log("isValidating |-->", isValidating);
     return (
         <TextFieldStyled hasError={hasError}>
             <Field id={id} name={name} {...props}
@@ -41,4 +39,6 @@ const TextField = ({ name, ...props }) => {
         </TextFieldStyled>
     )
 };
+
+
 export default TextField;

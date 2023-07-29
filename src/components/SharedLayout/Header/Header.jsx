@@ -22,7 +22,7 @@ const Header = () => {
 
             <NavigationMain />
             
-            <MediaQuery minWidth={768}>
+            <MediaQuery minWidth={1280}>
                 {/* <ThemeSwitcher className="" /> */}
                 <ThemeSwitcherMain className="" />
             </MediaQuery>
