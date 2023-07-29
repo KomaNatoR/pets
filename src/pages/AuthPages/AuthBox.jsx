@@ -22,7 +22,13 @@ const AuthBox = ({ children, forWhat }) => {
             <div>
                 <Title titleStyle="h2_auth">{forWhat}</Title>
 
-                <Formik onSubmit={onSubmitSignup} initialValues={initialValues} validationSchema={regSchema}>
+                <Formik
+                    onSubmit={onSubmitSignup}
+                    initialValues={initialValues}
+                    validationSchema={regSchema}
+                    validateOnChange={false}
+                    validateOnBlur={false}
+                >
                     <FormStyled>
                         <div>
                             <TextField {...fields.email} />
