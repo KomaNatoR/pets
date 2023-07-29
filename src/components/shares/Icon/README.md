@@ -5,7 +5,7 @@
 3. За замовчуванням `id="search"`, `colorFill="trans"`, `colorStroke="blue"`. Якщо введена невірна назва id(якої нема в базі) поверне `search`.
 4. Варіанти кольорів для `colorFill`: `lightBlue`, `blue`, `white`, `yellow`, `red`, `trans`.
 5. Варіанти кольорів для `colorStroke`: `blue`, `white`, `yellow`, `red`.
-6. Варіанти ID: `paw_full`, `search`, `cross_big`, `arrow`, `wing_arrow`, `filter`, `heart`, `trash_bin`, `location`, `clock`, `female`, `male`, `plus`, `sun_fill`, `sun`, `moon_fill`, `moon`.
+6. Варіанти ID: `paw_full`, `search`, `cross_big`, `arrow`, `wing_arrow`, `filter`, `heart`, `trash_bin`, `location`, `clock`, `female`, `male`, `plus`, `sun_fill`, `sun`, `moon_fill`, `moon`, `eye_closed`, `eye_open`.
 7. Можна перебивати стилі, кольори через "fill" i "stroke"!
 8. "stroke" - колір самої іконки! "fill" колір фону!
 
