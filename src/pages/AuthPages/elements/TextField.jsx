@@ -8,13 +8,14 @@ import { ErrField } from "./errorField.styled";
 
 
 const TextField = ({ name, type, ...props }) => {
-    const [isOpenEye, setIsOpenEye] = useState(false);
-    const { values, setFieldValue, errors, touched, setErrors, } = useFormikContext();//setTouched
+    const [isVisible, setIsVisible] = useState(false);
+    const [toggleEye, setToggleEye] = useState(false);
+    const { values, setFieldValue, errors, setErrors, validateForm } = useFormikContext();//setTouched touched
     const id = useMemo(() => nanoid(), []);
 
 
     const toggleEyeView = () => {
-        setIsOpenEye(prev => !prev);
+        setToggleEye(prev => !prev);
     }
     const onHandleChange = (e) => {
         const { value } = e.target;
@@ -23,37 +24,60 @@ const TextField = ({ name, type, ...props }) => {
         // setTouched({ ...setTouched, [name]: "" });
         setErrors({ ...errors, [name]: "" });
     };
+    const onHandleFocus = () => {
+        setIsVisible(true);
+        setErrors({ ...errors, [name]: "" });
+    }
+    const onHandleBlur = () => {
+        validateForm()
+        setTimeout(() => {
+            setIsVisible(false);
+        }, 100);
+    }
     const deleteValue = () => {
         setFieldValue(name, "");
         // setTouched({ ...setTouched, [name]: "" });
         setErrors({ ...errors, [name]: "" });
-        setIsOpenEye(false);
+        setToggleEye(false);
     };
 
-    const isError = getIn(errors, name) && getIn(touched, name);
-    const isVisible = values[name];
+    const isError = Boolean(getIn(errors, name));// && getIn(touched, name)
+    const isEmptyField = Boolean(values[name] === "");
     const hasEyeClosed = name !== "email";
-    const isEyeClosed = !isOpenEye;
-    const isPasswordVisible = !isOpenEye ? "password" : "text";
+    const isEyeClosed = !toggleEye;
+    const isPasswordVisible = !toggleEye ? "password" : "text";
+    const isValidField = errors[name] === undefined;
 
-    // console.log("isVisible   |-->", isVisible);
-    // console.log("values |-->", values);
+    // console.log("isEmptyField|-->", isEmptyField,name);
+    // console.log("isError     |-->", isError,name);
+    // console.log("errors      |-->", errors);
+    // console.log("getIn(touched, name)|-->", useFormikContext());
 
     return (
-        <TextFieldStyled hasError={isVisible ? isError : null}>
+        <TextFieldStyled
+            isError={!isEmptyField ? isError : null}
+            isValidField={isEmptyField ? false : isValidField}
+        >
             <Field id={id} {...props}
                 onChange={onHandleChange}
+                onFocus={onHandleFocus}
+                onBlur={onHandleBlur}
                 name={name}
                 type={type === "email" ? type : isPasswordVisible}
                 value={values[name]}
             />
-            {isVisible && hasEyeClosed && isEyeClosed && <Icon onClick={toggleEyeView} id="eye_closed" />}
-            {isVisible && hasEyeClosed && !isEyeClosed && <Icon onClick={toggleEyeView} id="eye_open" />}
-            {isVisible && <Icon onClick={deleteValue} id="cross_big" colorStroke="red" />}
-            {isVisible && isError && <ErrorMessage name={name} component={ErrField} />}
+            <div>
+                {!isEmptyField && !isVisible && isValidField && <Icon onClick={deleteValue} id="okey" colorStroke="green" />}
+                {!isEmptyField && isVisible && <Icon onClick={deleteValue} id="cross_big" colorStroke="red" />}
+
+                {hasEyeClosed && isEyeClosed && <Icon onClick={toggleEyeView} id="eye_closed" />}
+                {hasEyeClosed && !isEyeClosed && <Icon onClick={toggleEyeView} id="eye_open" />}
+            </div>
+                
+            {!isEmptyField && isError && <ErrorMessage name={name} component={ErrField} />}
         </TextFieldStyled>
     )
 };
-
+//
 
 export default TextField;

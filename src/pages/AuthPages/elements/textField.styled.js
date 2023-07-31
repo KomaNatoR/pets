@@ -1,5 +1,14 @@
 import styled from "@emotion/styled";
 
+const fieldColor = ({theme, isError, isValidField}) => {
+    if (isValidField) return theme.colors.green;
+    else return isError ? theme.colors.red : theme.colors.blue;
+};
+// const inputTextColor = ({theme, isError, isValidField}) => {
+//     if (isValidField) return theme.colors.green;
+//     else return isError ? theme.colors.red : theme.colors.gray;
+// };
+
 export const TextFieldStyled = styled.div`
     position: relative;
 
@@ -16,25 +25,28 @@ export const TextFieldStyled = styled.div`
 
         color: ${({ theme }) => theme.colors.gray};
         background: ${({ theme }) => theme.colors.whiteInput};
-        border: 1px solid ${({ theme, hasError }) => hasError ? theme.colors.red : theme.colors.blue};
+        border: 1px solid ${fieldColor};
         border-radius: 40px;
 
         ::placeholder {
             font-size: 16px;
             color: ${({ theme }) => theme.colors.grayInput};
         }
+        :focus {
+            outline-color: ${({ theme }) => theme.colors.yellow};
+        }
     }
-    svg {
+    > div:first-of-type {
         position: absolute;
         top: 12px;
-
-        cursor: pointer;
-    }
-    #cross_big {
         right: 12px;
-    }
-    #eye_closed, #eye_open {
-        right: 48px;
+
+        display: flex;
+        gap: 8px;
+
+        svg {
+            cursor: pointer;
+        }
     }
 @media (min-width: 768px) {
     
@@ -43,3 +55,4 @@ export const TextFieldStyled = styled.div`
     }
 }
 `;
+//({ theme, isError }) => isError ? theme.colors.red : theme.colors.blue

@@ -38,6 +38,10 @@ export const AuthPageStyled = styled.div`
 
             a {
                 color: ${({ theme }) => theme.colors.blue};
+                
+                :focus {
+                    outline-color: ${({ theme }) => theme.colors.yellow};
+                }
             }
         }
     }
@@ -68,6 +72,10 @@ export const FormStyled = styled(Form)`
     }
     button {
         width: 256px;
+
+        :focus {
+            outline-color: ${({ theme }) => theme.colors.yellow};
+        }
     }
 @media (min-width: 768px) {
 

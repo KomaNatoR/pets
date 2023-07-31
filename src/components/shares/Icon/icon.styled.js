@@ -31,6 +31,8 @@ const colorStrokeChoise = ({ colorStroke, theme }) => {
             return theme.colors.white;
         case "yellow":
             return '#FFC107';
+        case "green":
+            return theme.colors.green;
         case "red":
             return theme.colors.red;
     
