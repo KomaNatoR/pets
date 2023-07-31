@@ -3,6 +3,7 @@ export const themeDark = {
     yellow: '#54ADFF',
     white: '#111111',
     pureWhite: '#111111',
+    gray: 'rgb(136, 136, 136)',
     black: '#FFC107',
     pureBlack: '#888888',
     gradBlue: 'linear-gradient(290.46deg, #419EF1 0%, #9BD0FF 107.89%)',
@@ -12,6 +13,8 @@ export const themeDark = {
     red: '#F43F5E',
     // pagBlue:"##FDF7F2",
     // pagWhite:"#FDF7F2",
+    whiteInput: 'rgb(136, 136, 136)',
+    grayInput: '#111111',
   },
   logo: {
     black: '#54ADFF',

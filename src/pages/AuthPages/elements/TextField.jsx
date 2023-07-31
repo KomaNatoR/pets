@@ -7,10 +7,11 @@ import Icon from "components/shares/Icon/Icon";
 import { ErrField } from "./errorField.styled";
 
 
-const TextField = ({ name, ...props }) => {
+const TextField = ({ name, type, ...props }) => {
     const [isOpenEye, setIsOpenEye] = useState(false);
     const { values, setFieldValue, errors, touched, setErrors, } = useFormikContext();//setTouched
     const id = useMemo(() => nanoid(), []);
+
 
     const toggleEyeView = () => {
         setIsOpenEye(prev => !prev);
@@ -26,26 +27,30 @@ const TextField = ({ name, ...props }) => {
         setFieldValue(name, "");
         // setTouched({ ...setTouched, [name]: "" });
         setErrors({ ...errors, [name]: "" });
+        setIsOpenEye(false);
     };
 
     const isError = getIn(errors, name) && getIn(touched, name);
-    const isCross = values[name];
-    const isEyeClosed = !isOpenEye;
+    const isVisible = values[name];
     const hasEyeClosed = name !== "email";
+    const isEyeClosed = !isOpenEye;
+    const isPasswordVisible = !isOpenEye ? "password" : "text";
 
-    // console.log("errors   |-->", errors);
+    // console.log("isVisible   |-->", isVisible);
     // console.log("values |-->", values);
 
     return (
-        <TextFieldStyled hasError={isError}>
-            <Field id={id} name={name} {...props}
-                value={values[name]}
+        <TextFieldStyled hasError={isVisible ? isError : null}>
+            <Field id={id} {...props}
                 onChange={onHandleChange}
+                name={name}
+                type={type === "email" ? type : isPasswordVisible}
+                value={values[name]}
             />
-            {hasEyeClosed && isEyeClosed && <Icon onClick={toggleEyeView} id="eye_closed" />}
-            {hasEyeClosed && !isEyeClosed && <Icon onClick={toggleEyeView} id="eye_open" />}
-            {isCross && <Icon onClick={deleteValue} id="cross_big" colorStroke="red" />}
-            {isError && <ErrorMessage name={name} component={ErrField} />}
+            {isVisible && hasEyeClosed && isEyeClosed && <Icon onClick={toggleEyeView} id="eye_closed" />}
+            {isVisible && hasEyeClosed && !isEyeClosed && <Icon onClick={toggleEyeView} id="eye_open" />}
+            {isVisible && <Icon onClick={deleteValue} id="cross_big" colorStroke="red" />}
+            {isVisible && isError && <ErrorMessage name={name} component={ErrField} />}
         </TextFieldStyled>
     )
 };

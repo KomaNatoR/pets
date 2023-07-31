@@ -15,12 +15,13 @@ export const TextFieldStyled = styled.div`
         font-size: 16px;
 
         color: ${({ theme }) => theme.colors.gray};
+        background: ${({ theme }) => theme.colors.whiteInput};
         border: 1px solid ${({ theme, hasError }) => hasError ? theme.colors.red : theme.colors.blue};
         border-radius: 40px;
 
         ::placeholder {
             font-size: 16px;
-            color: ${({ theme }) => theme.colors.gray};
+            color: ${({ theme }) => theme.colors.grayInput};
         }
     }
     svg {

@@ -13,6 +13,8 @@ export const themeLight = {
     red: '#F43F5E',
     // pagBlue:"#54ADFF",
     // pagWhite:"#FDF7F2",
+    whiteInput: '#FFFFFF',
+    grayInput: 'rgb(136, 136, 136)',
   },
   logo: {
     black: '#111111',
