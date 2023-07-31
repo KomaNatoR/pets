@@ -1,5 +1,5 @@
 import { Field, ErrorMessage, useFormikContext, getIn } from "formik";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { nanoid } from "nanoid";
 
 import { TextFieldStyled } from "./textField.styled";
@@ -8,9 +8,13 @@ import { ErrField } from "./errorField.styled";
 
 
 const TextField = ({ name, ...props }) => {
+    const [isOpenEye, setIsOpenEye] = useState(false);
     const { values, setFieldValue, errors, touched, setErrors, } = useFormikContext();//setTouched
     const id = useMemo(() => nanoid(), []);
 
+    const toggleEyeView = () => {
+        setIsOpenEye(prev => !prev);
+    }
     const onHandleChange = (e) => {
         const { value } = e.target;
 
@@ -24,18 +28,24 @@ const TextField = ({ name, ...props }) => {
         setErrors({ ...errors, [name]: "" });
     };
 
-    const hasError = getIn(errors, name) && getIn(touched, name);
-    // console.log("hasError|-->", hasError);
+    const isError = getIn(errors, name) && getIn(touched, name);
+    const isCross = values[name];
+    const isEyeClosed = !isOpenEye;
+    const hasEyeClosed = name !== "email";
+
     // console.log("errors   |-->", errors);
-    // console.log("touched |-->", touched);
+    // console.log("values |-->", values);
+
     return (
-        <TextFieldStyled hasError={hasError}>
+        <TextFieldStyled hasError={isError}>
             <Field id={id} name={name} {...props}
                 value={values[name]}
                 onChange={onHandleChange}
             />
-            {values[name] && <Icon onClick={deleteValue} id="cross_big" colorStroke="red" />}
-            {hasError && <ErrorMessage name={name} component={ErrField} />}
+            {hasEyeClosed && isEyeClosed && <Icon onClick={toggleEyeView} id="eye_closed" />}
+            {hasEyeClosed && !isEyeClosed && <Icon onClick={toggleEyeView} id="eye_open" />}
+            {isCross && <Icon onClick={deleteValue} id="cross_big" colorStroke="red" />}
+            {isError && <ErrorMessage name={name} component={ErrField} />}
         </TextFieldStyled>
     )
 };

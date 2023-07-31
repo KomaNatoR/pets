@@ -27,7 +27,7 @@ const AuthBox = ({ children, forWhat }) => {
                     initialValues={initialValues}
                     validationSchema={regSchema}
                     validateOnChange={false}
-                    validateOnBlur={false}
+                    validateOnBlur={true}
                 >
                     <FormStyled>
                         <div>

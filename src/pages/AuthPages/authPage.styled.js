@@ -69,5 +69,11 @@ export const FormStyled = styled(Form)`
     button {
         width: 256px;
     }
+@media (min-width: 768px) {
+
+    button {
+        width: 458px;
+    }
+}
 `;
 //padding: 60px 75px;

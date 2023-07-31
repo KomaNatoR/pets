@@ -26,6 +26,19 @@ export const TextFieldStyled = styled.div`
     svg {
         position: absolute;
         top: 12px;
+
+        cursor: pointer;
+    }
+    #cross_big {
         right: 12px;
     }
+    #eye_closed, #eye_open {
+        right: 48px;
+    }
+@media (min-width: 768px) {
+    
+    input {
+        width: 458px;
+    }
+}
 `;
