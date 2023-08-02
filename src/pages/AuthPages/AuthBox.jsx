@@ -5,6 +5,7 @@ import { Formik } from 'formik';
 import { fields, initialValues, regSchema } from "./data";
 import TextField from "./elements/TextField";
 import Button from "components/shares/Button/Button";
+import { toast } from 'react-toastify';
 
 
 const AuthBox = ({ children, forWhat }) => {
@@ -15,6 +16,18 @@ const AuthBox = ({ children, forWhat }) => {
 
         // dispatch(signUp(personData));
         // actions.resetForm();
+    };
+    const toastHeart = () => {
+        toast.error('Sorry still not completed!', {
+            position: "top-center",
+            autoClose: 2000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+        });
     };
 
     return (
@@ -36,7 +49,7 @@ const AuthBox = ({ children, forWhat }) => {
                             {forWhat === "Registration" && <TextField {...fields.confirmPassword} />}
                         </div>
 
-                        <Button buttonView="blue" type="submit">{forWhat}</Button>
+                        <Button onClick={toastHeart} buttonView="blue" type="submit">{forWhat}</Button>
                     </FormStyled>
                 </Formik>
 

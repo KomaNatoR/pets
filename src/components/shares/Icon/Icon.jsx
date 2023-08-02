@@ -2,6 +2,7 @@ import { IconStyled } from "./icon.styled";
 import iconsBox from "./icons/svg_sprite.svg";
 import iconsId from "./icons/icons.json";
 
+
 const Icon = (props) => {
     const { id, colorFill, colorStroke } = props;
     let checkId = iconsId.find(it => it === id);

@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const instance = axios.create({
     baseURL: process.env.REACT_APP_API_URL || 'https://barkend.onrender.com/api',
-    timeout: 2000,
+    // timeout: 2000,
 });
 
 
