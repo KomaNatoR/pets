@@ -4,7 +4,7 @@ import { initialState } from "./noticSearch_initialState";
 
 
 const noticSearchSlice = createSlice({
-    name: "todos",
+    name: "search",
     initialState,
     reducers: {
         setKeyWord: (_, action) => ({ ...action.payload }),

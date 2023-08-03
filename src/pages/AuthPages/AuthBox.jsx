@@ -8,13 +8,13 @@ import Button from "components/shares/Button/Button";
 import { toast } from 'react-toastify';
 
 
-const AuthBox = ({ children, forWhat }) => {
+const AuthBox = ({ children, forWhat, handleSignup }) => {
 
     const onSubmitSignup = (data, actions) => {
-        // let { email, password, confirm } = data;
-        // console.log("RegData:", data);
+        let { email, password } = data;
+        console.log("RegData:", data);
 
-        // dispatch(signUp(personData));
+        handleSignup({ email, password });
         // actions.resetForm();
     };
     const toastHeart = () => {
@@ -58,6 +58,6 @@ const AuthBox = ({ children, forWhat }) => {
         </AuthPageStyled>
     )
 };
-
+// / 
 
 export default AuthBox;

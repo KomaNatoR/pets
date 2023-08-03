@@ -1,19 +1,15 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-import {getNotices, getNoticesSearch} from "../../../../API/ApiNotices";
+import { getNotices, getNoticesSearch } from "../../../../API/ApiNotices";
 
 
 export const fetchNotices = createAsyncThunk(
     "notices/fetch",
     async ({ categorie, page }, thunkAPI) => {
-        // console.log("categorie|-->",categorie);
-        // console.log("page     |-->", page);
-        // console.log("thunkAPI |-->", thunkAPI);
         try {
             const data = await getNotices(categorie, { page: page });
             return data;
         } catch (error) {
-            // console.log("error   |-->", error);
             return thunkAPI.rejectWithValue(error);
         }
     }

@@ -29,22 +29,22 @@ const Loader = ({ isUndefind = true }) => {
             {/* {!Boolean(isUndefind) && <p>Sorry, something goin wrong with backend! It's need some time...</p>} */}
 
             {stepOne &&
-                <svg className="loader_one loader">
+                <svg className="loader loader_one">
                     <use href={`${paw}#icon-paw_full_stright`}></use>
                 </svg>
             }
             {stepTwo &&
-                <svg className="loader_two loader">
+                <svg className="loader loader_two">
                     <use href={`${paw}#icon-paw_full_stright`}></use>
                 </svg>
             }
             {stepThree &&
-                <svg className="loader_three loader">
+                <svg className="loader loader_three">
                     <use href={`${paw}#icon-paw_full_stright`}></use>
                 </svg>
             }
             {stepFour &&
-                <svg className="loader_four loader">
+                <svg className="loader loader_four">
                     <use href={`${paw}#icon-paw_full_stright`}></use>
                 </svg>
             }

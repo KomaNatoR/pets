@@ -15,6 +15,7 @@ import storage from 'redux-persist/lib/storage';
 import { reducerNotices } from "pages/NoticesPage/Redux/notices/notices_slice";
 import { reducerNoticSearch } from "pages/NoticesPage/Redux/search/noticSearch_slice";
 import { reducerCounter } from "REDUX/REDUX_ASYNC/counter/counterSlice";
+import { reducerAuth } from "pages/AuthPages/redux/auth-slice";
 // import { reducerTodo } from "REDUX/REDUX_ASYNC/todo/todoSlice";
  
 
@@ -31,6 +32,7 @@ export const store = configureStore({
         notices: reducerNotices,
         noticesSearch: reducerNoticSearch,
         counter: persistedCounterSearchReducer,
+        auth: reducerAuth,
         // todo: persistedTodoReducer,
     },
     middleware: (getDefaultMiddleware) =>
