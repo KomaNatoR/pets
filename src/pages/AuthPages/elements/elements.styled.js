@@ -55,4 +55,17 @@ export const TextFieldStyled = styled.div`
     }
 }
 `;
-//({ theme, isError }) => isError ? theme.colors.red : theme.colors.blue
+
+export const ErrField = styled.div`
+    position: absolute;
+    left: 16px;
+
+    font-size: 12px;
+
+    color: ${({ theme }) => theme.colors.red};
+`;
+
+export const CongratsStyled = styled.div`
+    width: 280px;
+    height: 288px;
+`;

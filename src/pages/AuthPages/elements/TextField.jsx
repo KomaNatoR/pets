@@ -2,9 +2,9 @@ import { Field, ErrorMessage, useFormikContext, getIn } from "formik";
 import { useMemo, useState } from "react";
 import { nanoid } from "nanoid";
 
-import { TextFieldStyled } from "./textField.styled";
+import { TextFieldStyled } from "./elements.styled";
 import Icon from "components/shares/Icon/Icon";
-import { ErrField } from "./errorField.styled";
+import { ErrField } from "./elements.styled";
 
 
 const TextField = ({ name, type, ...props }) => {
