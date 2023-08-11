@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";//useNavigate
 
 import { AuthPageStyled, FormStyled } from "./authPage.styled";
 import Title from "components/shares/Title/Title";
@@ -10,14 +10,15 @@ import Button from "components/shares/Button/Button";
 
 
 const AuthBox = ({ children, forWhat, handleSignup }) => {
-    const navigate = useNavigate();
+    const location = useLocation();
+    // const navigate = useNavigate();
 
     const onSubmitSignup = (data, actions) => {
         // let { email, password } = data;
         console.log("SubmData:", data);
 
         // handleSignup({ email, password });
-        navigate('/user');
+        // navigate('/user');
         // actions.resetForm();
     };
 
@@ -40,7 +41,9 @@ const AuthBox = ({ children, forWhat, handleSignup }) => {
                             {forWhat === "Registration" && <TextField {...fields.confirmPassword} />}
                         </div>
 
-                        <Button buttonView="blue" type="submit">{forWhat}</Button>
+                        <Link to="/user" state={location}>
+                            <Button buttonView="blue" type="submit">{forWhat}</Button>
+                        </Link>
                     </FormStyled>
                 </Formik>
 

@@ -66,6 +66,29 @@ export const ErrField = styled.div`
 `;
 
 export const CongratsStyled = styled.div`
+box-sizing: border-box;
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
     width: 280px;
     height: 288px;
+    padding: 60px 16px;
+
+    border-radius: 20px;
+
+    p {
+        margin-top: 24px;
+        margin-bottom: 40px;
+    }
+    .btn_close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        
+        
+        :hover, :focus {
+            transform: scale(1.3) rotateZ(90deg);
+        }
+    }  
 `;

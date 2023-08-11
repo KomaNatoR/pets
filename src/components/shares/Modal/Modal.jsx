@@ -26,7 +26,7 @@ const Modal = (props) => {
     };
 
     return createPortal(
-        <BackdropDiv onClick={hendleBackdropClick}>
+        <BackdropDiv onClick={hendleBackdropClick} customStyles={customStyles}>
             <ModalDiv customStyles={customStyles}>
                 {children}
             </ModalDiv>

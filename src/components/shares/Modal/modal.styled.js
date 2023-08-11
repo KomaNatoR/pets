@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-import { defaultModalStyles, customModalStyles } from "./styles";
+import { defaultModalStyles, customModalStyles, customAuthStyles } from "./styles";
 
 export const BackdropDiv = styled.div`
   position: fixed;
@@ -12,8 +12,8 @@ export const BackdropDiv = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(43, 43, 43, 0.6);
-  backdrop-filter: blur(10px);
+  background-color: rgba(43, 43, 43, 0.5);
+  backdrop-filter: blur(0px);
   overflow-y: scroll;
 `;
 
@@ -25,6 +25,8 @@ const choseStyles = ({ customStyles, theme }) => {
       return defaultModalStyles(theme);
     case "custom":
       return customModalStyles(theme);
+    case "custom_auth":
+      return customAuthStyles(theme);
   
     default:
       return defaultModalStyles(theme);

@@ -77,6 +77,9 @@ export const FormStyled = styled(Form)`
             outline-color: ${({ theme }) => theme.colors.yellow};
         }
     }
+    a {
+        text-decoration: none;
+    }
 @media (min-width: 768px) {
 
     button {
