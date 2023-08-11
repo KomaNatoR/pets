@@ -12,7 +12,7 @@
 6. Варіанти ID: `paw_full`, `search`, `cross_big`, `arrow`, `wing_arrow`,
    `filter`, `heart`, `trash_bin`, `location`, `clock`, `female`, `male`,
    `plus`, `sun_fill`, `sun`, `moon_fill`, `moon`, `eye_closed`, `eye_open`,
-   `okey`, `user`, `paw`.
+   `okey`, `user`, `paw`, `camera`, `logout`, `edit`.
 7. Можна перебивати стилі, кольори через "fill" i "stroke"!
 8. "stroke" - колір самої іконки! "fill" колір фону!
 

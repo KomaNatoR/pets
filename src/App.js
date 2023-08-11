@@ -9,6 +9,7 @@ const NoticesCategoriesList = lazy(() => import("./pages/NoticesPage/noticesElem
 const FriendsPage = lazy(() => import("./pages/FriendsPage/FriendsPage"));
 const RegPage = lazy(() => import("pages/AuthPages/RegPage/RegPage"));
 const LoginPage = lazy(() => import("pages/AuthPages/LoginPage/LoginPage"));
+const UserPage = lazy(() => import("pages/UserPage/UserPage"));
 const ErrorPage = lazy(() => import("./pages/ErrorPage/ErrorPage"));
 
 // import Loader from "components/shares/Loader/Loader";
@@ -30,6 +31,7 @@ function App() {
           <Route path="/friends" element={<FriendsPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegPage />} />
+          <Route path="/user" element={<UserPage />} />
           <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>

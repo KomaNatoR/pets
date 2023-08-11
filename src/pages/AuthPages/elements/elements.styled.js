@@ -23,7 +23,7 @@ export const TextFieldStyled = styled.div`
 
         font-size: 16px;
 
-        color: ${({ theme }) => theme.colors.gray};
+        color: ${({ theme }) => theme.colors.grayInput};
         background: ${({ theme }) => theme.colors.whiteInput};
         border: 1px solid ${fieldColor};
         border-radius: 40px;

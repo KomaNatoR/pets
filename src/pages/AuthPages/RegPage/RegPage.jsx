@@ -36,7 +36,11 @@ const RegPage = () => {
             <AuthBox forWhat="Registration" handleSignup={handleSignup}>
                 {errStroke(error)}
                 {loading && <Loader />}
-                <p className="auth_bottom_text">Already have an account?<Link to="/login"> Login</Link></p>
+                
+                <p className="auth_bottom_text">
+                    {"Already have an account?"}
+                    <Link to="/login"> Login</Link>
+                </p>
             </AuthBox>
         </>
     )

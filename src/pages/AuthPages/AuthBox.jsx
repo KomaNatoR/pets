@@ -1,33 +1,24 @@
+import { useNavigate } from "react-router-dom";
+
 import { AuthPageStyled, FormStyled } from "./authPage.styled";
 import Title from "components/shares/Title/Title";
 
 import { Formik } from 'formik';
-import { fields, initialValues, regSchema } from "./data";
+import { fields, initialValues, regSchema, logSchema } from "./data";
 import TextField from "./elements/TextField";
 import Button from "components/shares/Button/Button";
-import { toast } from 'react-toastify';
 
 
 const AuthBox = ({ children, forWhat, handleSignup }) => {
+    const navigate = useNavigate();
 
     const onSubmitSignup = (data, actions) => {
-        let { email, password } = data;
-        console.log("RegData:", data);
+        // let { email, password } = data;
+        console.log("SubmData:", data);
 
-        handleSignup({ email, password });
+        // handleSignup({ email, password });
+        navigate('/user');
         // actions.resetForm();
-    };
-    const toastHeart = () => {
-        toast.error('Sorry still not completed!', {
-            position: "top-center",
-            autoClose: 2000,
-            hideProgressBar: true,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-        });
     };
 
     return (
@@ -38,7 +29,7 @@ const AuthBox = ({ children, forWhat, handleSignup }) => {
                 <Formik
                     onSubmit={onSubmitSignup}
                     initialValues={initialValues}
-                    validationSchema={regSchema}
+                    validationSchema={forWhat === "Registration" ? regSchema : logSchema}
                     validateOnChange={false}
                     validateOnBlur={true}
                 >
@@ -49,7 +40,7 @@ const AuthBox = ({ children, forWhat, handleSignup }) => {
                             {forWhat === "Registration" && <TextField {...fields.confirmPassword} />}
                         </div>
 
-                        <Button onClick={toastHeart} buttonView="blue" type="submit">{forWhat}</Button>
+                        <Button buttonView="blue" type="submit">{forWhat}</Button>
                     </FormStyled>
                 </Formik>
 
@@ -58,6 +49,6 @@ const AuthBox = ({ children, forWhat, handleSignup }) => {
         </AuthPageStyled>
     )
 };
-// / 
+
 
 export default AuthBox;
