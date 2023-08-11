@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkreact_homework_template=self.webpackChunkreact_homework_template||[]).push([[759],{4759:function(e,t,r){r.r(t);var a=r(1087),n=r(9839),c=r(184);t.default=function(){return(0,c.jsx)(n.Z,{forWhat:"Login",children:(0,c.jsxs)("p",{className:"auth_bottom_text",children:["Don't have an account?",(0,c.jsx)(a.rU,{to:"/register",children:" Register"})]})})}}}]);
+//# sourceMappingURL=759.8ba570c8.chunk.js.map
