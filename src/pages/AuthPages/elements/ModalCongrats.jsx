@@ -12,6 +12,8 @@ import { useToggleModal } from "components/shares/Modal/utils/useToggleModal";
 const ModalCongrats = () => {
     const { isOpen, close } = useToggleModal(true);
     const { state } = useLocation();
+    const location = useLocation();
+    console.log("location|-->", location);
 
     
     if (!state) return;

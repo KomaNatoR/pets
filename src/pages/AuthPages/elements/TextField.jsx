@@ -11,6 +11,8 @@ const TextField = ({ name, type, ...props }) => {
     const [isVisible, setIsVisible] = useState(false);
     const [toggleEye, setToggleEye] = useState(false);
     const { values, setFieldValue, errors, setErrors, validateForm } = useFormikContext();//setTouched touched
+    // const formikContext = useFormikContext();
+    // console.log("formikContext|-->",formikContext);
     const id = useMemo(() => nanoid(), []);
 
 
