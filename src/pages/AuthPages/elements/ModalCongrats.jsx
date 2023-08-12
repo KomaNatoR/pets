@@ -12,14 +12,14 @@ import { useToggleModal } from "components/shares/Modal/utils/useToggleModal";
 const ModalCongrats = () => {
     const { isOpen, close } = useToggleModal(true);
     const { state } = useLocation();
-    const location = useLocation();
-    console.log("location|-->", location);
+    // const location = useLocation();
+    // console.log("location|-->", location);
 
     
     if (!state) return;
     return (
         <>
-            {state.pathname === "/register" && isOpen &&
+            {state === "/register" && isOpen &&
                 <Modal customStyles="custom_auth">
                     <CongratsStyled>
                         <Button onClick={close} className="btn_close" buttonView="close">
