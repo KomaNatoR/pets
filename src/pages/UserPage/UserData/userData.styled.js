@@ -47,6 +47,6 @@ export const UserDataStyled = styled.div`
         align-items: center;
         gap: 8px;
 
-        cursor: pointer;
+        svg {cursor: pointer;}
     }
 `;

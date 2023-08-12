@@ -33,8 +33,8 @@ const UserData = () => {
                     <InputField {...fields.city} />
                 </div>
 
-                <div onClick={handleClick} className="user_logout">
-                    <Icon id="logout" />
+                <div className="user_logout">
+                    <Icon id="logout" onClick={handleClick} />
                     <p>Log Out</p>
                 </div>
             </UserDataStyled>
